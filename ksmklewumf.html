@@ -41,6 +41,9 @@
 
       <!-- Painel lateral DIREITO -->
       <div class="side-panel right-panel">
+            <div id="mini-profile" style="position:absolute; top:10px; right:10px; color:white; font-size:14px;">
+  Logado como: <span id="user-phone"></span>
+</div>
         <div class="next-box">
           <h2>Próximas Peças</h2>
           <div class="next-box-canvases">
@@ -65,10 +68,24 @@
 
   <!-- Som opcional -->
   <audio id="lineClearSound" src="lineclear.mp3" preload="auto"></audio>
-  
+
+<script>
+  // pega o telefone do usuário logado
+  const phone = sessionStorage.getItem("loggedUserPhone");
+  if (phone) {
+    document.getElementById("user-phone").textContent = phone;
+  }
+
+  // proteção extra: redireciona se não estiver logado
+  if (sessionStorage.getItem("auth") !== "true") {
+    window.location.href = "index.html";
+  }
+</script>
+      
   <script src="js/script.js"></script>
 </body>
 </html>
+
 
 
 
