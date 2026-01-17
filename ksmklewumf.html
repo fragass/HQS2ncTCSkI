@@ -140,11 +140,18 @@
   if (sessionStorage.getItem("auth") !== "true") {
     window.location.href = "index.html";
   }
+          // logout: limpa sessão e volta para login
+    document.getElementById("logout").addEventListener("click", (e) => {
+      e.preventDefault();
+      sessionStorage.clear(); // remove auth e telefone
+      window.location.href = "index.html"; // redireciona para login
+    });
 </script>
       
   <script src="js/script.js"></script>
 </body>
 </html>
+
 
 
 
