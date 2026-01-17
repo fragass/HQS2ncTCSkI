@@ -37,11 +37,10 @@
   }
 
   /* Seta */
-  #arrow {
-    display: inline-block;
-    transition: transform 0.3s;
-    font-size: 12px;
-  }
+#arrow {
+  transition: transform 0.3s;
+  margin-left: 4px;
+}
 
   /* Dropdown menu */
   #dropdown-menu {
@@ -103,10 +102,13 @@
       <!-- Painel lateral DIREITO -->
       <div class="side-panel right-panel">
   <!-- Mini perfil com seta dropdown -->
-  <div id="mini-profile">
-    Logado como: <span id="user-phone"></span>
-    <span id="arrow">▼</span>
-  </div>
+<div id="mini-profile">
+  Logado como: <span id="user-phone"></span>
+  <!-- seta fina em SVG -->
+  <svg id="arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="6 9 12 15 18 9"></polyline>
+  </svg>
+</div>
 
   <!-- Dropdown menu -->
   <div id="dropdown-menu">
@@ -153,11 +155,11 @@
     const dropdownMenu = document.getElementById("dropdown-menu");
     const arrow = document.getElementById("arrow");
 
-    miniProfile.addEventListener("click", () => {
-      const isVisible = dropdownMenu.style.display === "block";
-      dropdownMenu.style.display = isVisible ? "none" : "block";
-      arrow.style.transform = isVisible ? "rotate(0deg)" : "rotate(180deg)";
-    });
+miniProfile.addEventListener("click", () => {
+  const isVisible = dropdownMenu.style.display === "block";
+  dropdownMenu.style.display = isVisible ? "none" : "block";
+  arrow.style.transform = isVisible ? "rotate(0deg)" : "rotate(180deg)";
+});
 
     // logout: limpa sessão e volta para login
     document.getElementById("logout").addEventListener("click", () => {
@@ -177,6 +179,7 @@
   <script src="js/script.js"></script>
 </body>
 </html>
+
 
 
 
