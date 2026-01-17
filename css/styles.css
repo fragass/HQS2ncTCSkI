@@ -1,0 +1,200 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  background: #111;
+  color: #fff;
+  display: flex;
+  align-items: center;     /* centraliza verticalmente */
+  justify-content: center; /* centraliza horizontalmente */
+  overflow-x: hidden;      /* impede rolagem lateral */
+  overflow-y: hidden;      /* impede rolagem vertical extra */
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;      /* centraliza textos por padrão */
+}
+
+#mainWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+}
+
+.game-area {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.arena-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Arena do Tetris */
+#tetris {
+  background: #000;
+  border: 2px solid #444;
+  width: 200px;   /* largura fixa */
+  height: 400px;  /* altura fixa */
+  display: block;
+  margin: 0 auto;
+}
+
+/* Scoreboard abaixo da arena com fonte menor */
+#scoreboard {
+  margin-top: 8px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;          /* fonte menor */
+  text-align: center;
+  text-shadow: 0 0 4px rgba(255,255,255,0.3);
+  width: 200px;             /* mesma largura da arena */
+  white-space: nowrap;      /* impede quebra de linha */
+}
+
+/* Próximas peças */
+.next-box {
+  display: flex;
+  flex-direction: column; /* título em cima */
+  align-items: center;
+  margin-top: 12px;
+}
+
+.next-box h2 {
+  font-size: 14px;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
+/* Linha horizontal para os canvases */
+.next-box-canvases {
+  display: flex;
+  flex-direction: row;   /* coloca os quadrados lado a lado */
+  gap: 10px;             /* espaço entre eles */
+  justify-content: center;
+  align-items: center;
+}
+
+#next1, #next2, #next3 {
+  background: #000;
+  border: 2px solid #444;
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0;
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left-panel { order: -1; } /* garante que fique à esquerda */
+
+.card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  padding: 12px;
+  margin-top: 12px;
+  width: 200px;
+  font-size: 12px;
+  text-align: left;
+}
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  text-align: center;
+  color: #fff;
+}
+.card ul { list-style: none; padding: 0; margin: 0; }
+.card li { margin: 4px 0; }
+.key {
+  display: inline-block;
+  background: #222;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 2px 6px;
+  margin-right: 6px;
+  font-size: 11px;
+}
+
+/* Botão agora na lateral direita */
+.controls-side {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid #333;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #222;   /* tom da página */
+  color: #eee;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+/* Estados do botão */
+#startPauseBtn.start { background: #222; color: #9fddb3; }  /* verde suave */
+#startPauseBtn.pause { background: #222; color: #ffd27a; }  /* amarelo suave */
+#startPauseBtn.resume { background: #222; color: #9fc3ff; } /* azul claro */
+
+#overlayPopup {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.88);
+  color: #fff;
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+#overlayPopup h2 {
+  font-size: 28px;
+  margin: 0 0 10px;
+  color: #ff4444;
+  letter-spacing: 2px;
+}
+#overlayInfo {
+  margin: 0 0 16px;
+  font-size: 16px;
+  color: #9fddb3;
+}
+#overlayBtn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 10px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 12px;
+  color: #fff;
+  background: transparent;
+  pointer-events: none;
+}
