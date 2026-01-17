@@ -10,21 +10,25 @@
 </script>
   <meta charset="UTF-8">
   <title>Workday</title>
-      <style>
-  /* Estilo do mini perfil */
+     <style>
+  /* Mini perfil container */
   #mini-profile {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     color: #fff;
     font-family: Arial, sans-serif;
     font-size: 14px;
-    padding: 6px 10px;
+    padding: 6px 12px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     cursor: pointer;
+    user-select: none;
   }
 
   #mini-profile span {
@@ -32,39 +36,39 @@
     color: #ffcc00;
   }
 
-  /* Dropdown container */
-  .dropdown {
-    position: relative;
+  /* Seta */
+  #arrow {
     display: inline-block;
+    transition: transform 0.3s;
+    font-size: 12px;
   }
 
-  .dropdown-content {
+  /* Dropdown menu */
+  #dropdown-menu {
     display: none;
     position: absolute;
+    top: 40px; /* logo abaixo do mini-profile */
     right: 0;
-    background-color: rgba(0,0,0,0.9);
-    min-width: 80px;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.9);
     border-radius: 6px;
-    z-index: 1001;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    padding: 6px 10px;
   }
 
-  .dropdown-content a {
-    color: red;
-    padding: 8px 12px;
-    text-decoration: none;
-    display: block;
+  #dropdown-menu button {
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
     font-size: 14px;
-    border-radius: 4px;
+    transition: background 0.2s;
+    width: 100%;
   }
 
-  .dropdown-content a:hover {
-    background-color: rgba(255,0,0,0.2);
-  }
-
-  /* Mostrar dropdown ao passar o mouse */
-  .dropdown:hover .dropdown-content {
-    display: block;
+  #dropdown-menu button:hover {
+    background: #e60000;
   }
 </style>
   <link rel="stylesheet" href="css/styles.css">
@@ -98,11 +102,15 @@
 
       <!-- Painel lateral DIREITO -->
       <div class="side-panel right-panel">
- <div id="mini-profile" class="dropdown">
+  <!-- Mini perfil com seta dropdown -->
+  <div id="mini-profile">
     Logado como: <span id="user-phone"></span>
-    <div class="dropdown-content">
-      <a href="#" id="logout">Sair</a>
-    </div>
+    <span id="arrow">▼</span>
+  </div>
+
+  <!-- Dropdown menu -->
+  <div id="dropdown-menu">
+    <button id="logout">Sair</button>
   </div>
         <div class="next-box">
           <h2>Próximas Peças</h2>
@@ -140,17 +148,36 @@
   if (sessionStorage.getItem("auth") !== "true") {
     window.location.href = "index.html";
   }
-          // logout: limpa sessão e volta para login
-    document.getElementById("logout").addEventListener("click", (e) => {
-      e.preventDefault();
-      sessionStorage.clear(); // remove auth e telefone
-      window.location.href = "index.html"; // redireciona para login
+ // dropdown toggle
+    const miniProfile = document.getElementById("mini-profile");
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    const arrow = document.getElementById("arrow");
+
+    miniProfile.addEventListener("click", () => {
+      const isVisible = dropdownMenu.style.display === "block";
+      dropdownMenu.style.display = isVisible ? "none" : "block";
+      arrow.style.transform = isVisible ? "rotate(0deg)" : "rotate(180deg)";
+    });
+
+    // logout: limpa sessão e volta para login
+    document.getElementById("logout").addEventListener("click", () => {
+      sessionStorage.clear();
+      window.location.href = "index.html";
+    });
+
+    // opcional: fecha dropdown clicando fora
+    document.addEventListener("click", (e) => {
+      if (!miniProfile.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.style.display = "none";
+        arrow.style.transform = "rotate(0deg)";
+      }
     });
 </script>
       
   <script src="js/script.js"></script>
 </body>
 </html>
+
 
 
 
