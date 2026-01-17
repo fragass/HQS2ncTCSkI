@@ -12,71 +12,48 @@
   <title>Workday</title>
      <style>
   /* Mini perfil container */
-#mini-profile {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  padding: 6px 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  user-select: none;
-}
+  #mini-profile {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+  }
 
-#profile-pic svg {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.2);
-  padding: 2px;
-}
+  #mini-profile span {
+    font-weight: bold;
+    color: #ffcc00;
+  }
 
-#user-phone {
-  font-weight: bold;
-  color: #ffcc00;
-}
+  /* Seta */
+  #arrow {
+    display: inline-block;
+    transition: transform 0.3s;
+    font-size: 12px;
+  }
 
-#arrow {
-  transition: transform 0.3s;
-  margin-left: 4px;
-}
-
-/* dropdown menu */
-#dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 40px;
-  right: 0;
-  background: rgba(0,0,0,0.9);
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-  padding: 6px 10px;
-}
-
-#dropdown-menu button {
-  background: #ff4d4d;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 6px 12px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.2s;
-  width: 100%;
-}
-
-#dropdown-menu button:hover {
-  background: #e60000;
-}
-
+  /* Dropdown menu */
+  #dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 40px; /* logo abaixo do mini-profile */
+    right: 0;
+    background: rgba(0,0,0,0.9);
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    padding: 6px 10px;
+  }
 
   #dropdown-menu button {
     background: #ff4d4d;
@@ -125,29 +102,15 @@
 
       <!-- Painel lateral DIREITO -->
       <div class="side-panel right-panel">
-  <!-- Mini perfil com seta dropdown -->
-<div id="mini-profile">
-  <!-- foto de perfil pequena -->
-  <div id="profile-pic">
-    <!-- SVG de silhueta simples -->
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8V22h19.2v-2.8c0-3.2-6.4-4.8-9.6-4.8z"/>
-    </svg>
+  <div id="mini-profile">
+     <span id="user-phone"></span>
+    <span id="arrow">▼</span>
   </div>
 
-  <!-- telefone do usuário -->
-  <span id="user-phone"></span>
-
-  <!-- seta fina branca -->
-  <svg id="arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="6 9 12 15 18 9"></polyline>
-  </svg>
-</div>
-
-<!-- dropdown menu -->
-<div id="dropdown-menu">
-  <button id="logout">Sair</button>
-</div>
+  <!-- Dropdown menu -->
+  <div id="dropdown-menu">
+    <button id="logout">Sair</button>
+  </div>
 
         <div class="next-box">
           <h2>Próximas Peças</h2>
@@ -214,6 +177,7 @@ miniProfile.addEventListener("click", () => {
   <script src="js/script.js"></script>
 </body>
 </html>
+
 
 
 
