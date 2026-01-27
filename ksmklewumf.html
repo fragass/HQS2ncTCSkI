@@ -2,10 +2,9 @@
 <html lang="pt-BR">
 <head>
       <link rel="icon" href="favicon.png" type="image/png">
-    <script>
-  // Proteção: exige login em todo acesso
-  if (sessionStorage.getItem("auth") !== "true") {
- window.location.href = "index.html";
+<script>
+  if (!sessionStorage.getItem("token")) {
+    window.location.href = "index.html";
   }
 </script>
   <meta charset="UTF-8">
@@ -141,45 +140,36 @@
   <audio id="lineClearSound" src="lineclear.mp3" preload="auto"></audio>
 
 <script>
-  // pega o telefone do usuário logado
-  const phone = sessionStorage.getItem("loggedUserPhone");
-  if (phone) {
-    document.getElementById("user-phone").textContent = phone;
-  }
+  const user = sessionStorage.getItem("loggedUser");
+  document.getElementById("user-phone").textContent = user;
 
-  // proteção extra: redireciona se não estiver logado
-  if (sessionStorage.getItem("auth") !== "true") {
+  const miniProfile = document.getElementById("mini-profile");
+  const dropdownMenu = document.getElementById("dropdown-menu");
+  const arrow = document.getElementById("arrow");
+
+  miniProfile.onclick = () => {
+    const open = dropdownMenu.style.display === "block";
+    dropdownMenu.style.display = open ? "none" : "block";
+    arrow.style.transform = open ? "rotate(0deg)" : "rotate(180deg)";
+  };
+
+  document.getElementById("logout").onclick = () => {
+    sessionStorage.clear();
     window.location.href = "index.html";
-  }
- // dropdown toggle
-    const miniProfile = document.getElementById("mini-profile");
-    const dropdownMenu = document.getElementById("dropdown-menu");
-    const arrow = document.getElementById("arrow");
+  };
 
-miniProfile.addEventListener("click", () => {
-  const isVisible = dropdownMenu.style.display === "block";
-  dropdownMenu.style.display = isVisible ? "none" : "block";
-  arrow.style.transform = isVisible ? "rotate(0deg)" : "rotate(180deg)";
-});
-
-    // logout: limpa sessão e volta para login
-    document.getElementById("logout").addEventListener("click", () => {
-      sessionStorage.clear();
-      window.location.href = "index.html";
-    });
-
-    // opcional: fecha dropdown clicando fora
-    document.addEventListener("click", (e) => {
-      if (!miniProfile.contains(e.target) && !dropdownMenu.contains(e.target)) {
-        dropdownMenu.style.display = "none";
-        arrow.style.transform = "rotate(0deg)";
-      }
-    });
+  document.addEventListener("click", (e) => {
+    if (!miniProfile.contains(e.target) && !dropdownMenu.contains(e.target)) {
+      dropdownMenu.style.display = "none";
+      arrow.style.transform = "rotate(0deg)";
+    }
+  });
 </script>
       
   <script src="js/script.js"></script>
 </body>
 </html>
+
 
 
 
