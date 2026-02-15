@@ -1,7 +1,7 @@
 :root{
-  --bg:#0d1117;
+  --bg:#0f141a;
   --panel:#161b22;
-  --panel-soft:#11161d;
+  --panel-soft:#12171d;
   --border:rgba(255,255,255,.06);
   --text:#e6edf3;
   --muted:#8b949e;
@@ -11,13 +11,13 @@
   --warning:#d29922;
 }
 
-/* Reset base */
+/* Reset */
 *{box-sizing:border-box}
 
 html, body{
   height:100%;
   margin:0;
-  background:radial-gradient(circle at top,#111827 0%,var(--bg) 65%);
+  background:var(--bg); /* fundo totalmente uniforme */
   color:var(--text);
   display:flex;
   align-items:center;
@@ -186,8 +186,8 @@ html, body{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(10,15,20,.92);
-  backdrop-filter:blur(6px);
+  background:rgba(15,20,26,.96);
+  backdrop-filter:blur(4px);
   z-index:999;
   flex-direction:column;
   align-items:center;
