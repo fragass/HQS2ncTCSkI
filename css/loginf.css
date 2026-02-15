@@ -2,79 +2,123 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 body {
   height: 100vh;
-  background: #080808;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #e0e0e0;
+  color: #1e293b;
 }
 
-/* Card ultra compacto */
+/* Container */
+.container {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Card */
 .login-card {
   width: 100%;
-  max-width: 300px;
-  padding: 22px 20px;
-  background: #0c0c0c;
-  border: 1px solid #1a1a1a;
-  border-radius: 6px;
+  max-width: 380px;
+  padding: 40px 32px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.4s ease;
+}
+
+/* Logo Area */
+.logo-area {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.logo-area h1 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.logo-area p {
+  font-size: 14px;
+  color: #64748b;
 }
 
 /* Form */
 #loginForm {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 18px;
 }
 
-/* Inputs */
+/* Input group */
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
 #loginForm input {
-  padding: 10px 12px;
-  background: #060606;
-  border: 1px solid #1a1a1a;
-  border-radius: 4px;
-  color: #f0f0f0;
+  padding: 12px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
   font-size: 14px;
-}
-
-#loginForm input::placeholder {
-  color: #666;
+  background: #f8fafc;
+  transition: all 0.2s ease;
 }
 
 #loginForm input:focus {
   outline: none;
-  border-color: #2c2c2c;
-  background: #0a0a0a;
+  border-color: #3b82f6;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
-/* Botão */
+/* Button */
 #loginForm button {
-  margin-top: 6px;
-  padding: 10px;
-  background: #0f0f0f;
-  border: 1px solid #222;
-  border-radius: 4px;
-  color: #e5e5e5;
+  margin-top: 8px;
+  padding: 12px;
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
   font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 #loginForm button:hover {
-  background: #141414;
+  background: #2563eb;
 }
 
 #loginForm button:active {
-  background: #0a0a0a;
+  transform: scale(0.98);
 }
 
-/* Erro */
+/* Error message */
 #errorMsg {
-  margin-top: 8px;
-  font-size: 12px;
+  margin-top: 14px;
+  font-size: 13px;
   text-align: center;
-  color: #a44;
+  color: #dc2626;
+  min-height: 16px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
