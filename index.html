@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <link rel="icon" href="favicon.png" type="image/png">
   <meta charset="UTF-8">
-  <title>Workday cnx</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workday CNX</title>
+  <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="css/loginf.css">
 </head>
 <body>
-  <div class="login-card">
-    <form id="loginForm">
-      <input type="text" id="username" placeholder="Usuário" autocomplete="off" required>
-      <input type="password" id="password" placeholder="Senha" autocomplete="off" required>
-      <button type="submit">Entrar</button>
-    </form>
-    <p id="errorMsg"></p>
-  </div>
+
+  <main class="container">
+    <div class="login-card">
+      <div class="logo-area">
+        <h1>Workday CNX</h1>
+        <p>Acesso restrito ao sistema</p>
+      </div>
+
+      <form id="loginForm">
+        <div class="input-group">
+          <input type="text" id="username" placeholder="Usuário" autocomplete="off" required>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="password" placeholder="Senha" autocomplete="off" required>
+        </div>
+
+        <button type="submit">Entrar</button>
+      </form>
+
+      <p id="errorMsg"></p>
+    </div>
+  </main>
+
   <script src="js/loginf.js"></script>
 </body>
-
 </html>
-
-
-
-
-
