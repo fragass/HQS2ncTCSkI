@@ -50,9 +50,7 @@ body {
 
 #loginForm input:focus {
   outline: none;
-  background: #ffffff;
   border-color: #ffffff;
-  color: #111111;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
 }
 
@@ -87,6 +85,7 @@ body {
   color: #f85149;
   min-height: 14px;
 }
+
 
 
 
