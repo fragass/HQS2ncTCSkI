@@ -7,11 +7,11 @@
 
 body {
   height: 100vh;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
+  background: #0d1117;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #1e293b;
+  color: #e6edf3;
 }
 
 /* Container */
@@ -27,87 +27,87 @@ body {
   width: 100%;
   max-width: 380px;
   padding: 40px 32px;
-  background: #ffffff;
+  background: #161b22;
+  border: 1px solid #21262d;
   border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  animation: fadeIn 0.4s ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.3s ease;
 }
 
-/* Logo Area */
-.logo-area {
+/* Header */
+.header {
   text-align: center;
   margin-bottom: 28px;
 }
 
-.logo-area h1 {
-  font-size: 22px;
+.header h1 {
+  font-size: 20px;
   font-weight: 600;
-  color: #0f172a;
+  color: #f0f6fc;
   margin-bottom: 6px;
 }
 
-.logo-area p {
-  font-size: 14px;
-  color: #64748b;
+.header p {
+  font-size: 13px;
+  color: #8b949e;
 }
 
 /* Form */
 #loginForm {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 }
 
-/* Input group */
-.input-group {
-  display: flex;
-  flex-direction: column;
-}
-
+/* Inputs */
 #loginForm input {
   padding: 12px 14px;
-  border: 1px solid #e2e8f0;
+  background: #0d1117;
+  border: 1px solid #30363d;
   border-radius: 8px;
   font-size: 14px;
-  background: #f8fafc;
+  color: #e6edf3;
   transition: all 0.2s ease;
+}
+
+#loginForm input::placeholder {
+  color: #6e7681;
 }
 
 #loginForm input:focus {
   outline: none;
-  border-color: #3b82f6;
-  background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  border-color: #2f81f7;
+  box-shadow: 0 0 0 2px rgba(47, 129, 247, 0.2);
 }
 
 /* Button */
 #loginForm button {
-  margin-top: 8px;
+  margin-top: 6px;
   padding: 12px;
-  background: #3b82f6;
-  color: #ffffff;
-  border: none;
+  background: #238636;
+  border: 1px solid #2ea043;
   border-radius: 8px;
   font-size: 14px;
   font-weight: 500;
+  color: #ffffff;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 #loginForm button:hover {
-  background: #2563eb;
+  background: #2ea043;
 }
 
 #loginForm button:active {
   transform: scale(0.98);
 }
 
-/* Error message */
+/* Error */
 #errorMsg {
   margin-top: 14px;
   font-size: 13px;
   text-align: center;
-  color: #dc2626;
+  color: #f85149;
   min-height: 16px;
 }
 
@@ -115,7 +115,7 @@ body {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
