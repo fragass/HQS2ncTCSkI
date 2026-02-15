@@ -18,21 +18,21 @@ body {
 .login-card {
   width: 100%;
   max-width: 320px;
-  padding: 28px 24px;
+  padding: 26px 22px;
   background: #161b22;
   border: 1px solid #21262d;
-  border-radius: 10px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  border-radius: 8px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
 }
 
 /* Form */
 #loginForm {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
-/* Inputs proporcionais */
+/* Inputs */
 #loginForm input {
   width: 100%;
   padding: 11px 12px;
@@ -41,7 +41,7 @@ body {
   border: 1px solid #30363d;
   border-radius: 6px;
   color: #e6edf3;
-  transition: border 0.2s ease, box-shadow 0.2s ease;
+  transition: border 0.15s ease, box-shadow 0.15s ease;
 }
 
 #loginForm input::placeholder {
@@ -54,31 +54,32 @@ body {
   box-shadow: 0 0 0 2px rgba(47, 129, 247, 0.15);
 }
 
-/* Botão proporcional */
+/* Botão profissional discreto */
 #loginForm button {
   width: 100%;
-  padding: 11px;
+  padding: 11px 12px;
   font-size: 14px;
   font-weight: 500;
-  background: #238636;
-  border: 1px solid #2ea043;
+  background: #21262d;
+  border: 1px solid #30363d;
   border-radius: 6px;
-  color: #ffffff;
+  color: #e6edf3;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease;
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
 
 #loginForm button:hover {
-  background: #2ea043;
+  background: #2a3138;
+  border-color: #3a444d;
 }
 
 #loginForm button:active {
-  transform: scale(0.98);
+  background: #1c2128;
 }
 
-/* Erro */
+/* Mensagem de erro */
 #errorMsg {
-  margin-top: 10px;
+  margin-top: 8px;
   font-size: 12px;
   text-align: center;
   color: #f85149;
