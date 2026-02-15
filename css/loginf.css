@@ -1,93 +1,108 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+:root{
+  --bg:#0f141a;
+  --surface:#161b22;
+  --surface-soft:#11161d;
+  --border:rgba(255,255,255,.06);
+  --border-strong:rgba(255,255,255,.12);
+  --text:#e6edf3;
+  --muted:#8b949e;
+  --accent:#2f81f7;
+  --danger:#ff4d4f;
 }
 
-body {
-  height: 100vh;
-  background: #0d1117;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #e6edf3;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;
 }
 
-/* Card compacto */
-.login-card {
-  width: 100%;
-  max-width: 320px;
-  padding: 26px 22px;
-  background: #161b22;
-  border: 1px solid #21262d;
-  border-radius: 8px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+body{
+  height:100vh;
+  background:var(--bg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
 }
 
-/* Form */
-#loginForm {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+/* CARD */
+.login-card{
+  width:100%;
+  max-width:340px;
+  padding:32px 26px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.65),
+    0 0 0 1px rgba(255,255,255,.02);
 }
 
-/* Inputs */
-#loginForm input {
-  width: 100%;
-  padding: 11px 12px;
-  font-size: 14px;
-  background: #0d1117;
-  border: 1px solid #30363d;
-  border-radius: 6px;
-  color: #e6edf3;
-  transition: border 0.15s ease, box-shadow 0.15s ease;
+/* FORM */
+#loginForm{
+  display:flex;
+  flex-direction:column;
 }
 
-#loginForm input::placeholder {
-  color: #6e7681;
+/* INPUTS (mais próximos) */
+#loginForm input{
+  width:100%;
+  padding:12px 14px;
+  font-size:14px;
+  background:var(--surface-soft);
+  border:1px solid var(--border);
+  border-radius:10px;
+  color:var(--text);
+  transition:all .15s ease;
 }
 
-#loginForm input:focus {
-  outline: none;
-  border-color: #4b5563;
-  box-shadow: none;
+/* espaço pequeno entre usuário e senha */
+#loginForm input + input{
+  margin-top:8px;
 }
 
-/* Botão profissional discreto */
-#loginForm button {
-  width: 100%;
-  padding: 11px 12px;
-  font-size: 14px;
-  font-weight: 500;
-  background: #21262d;
-  border: 1px solid #30363d;
-  border-radius: 6px;
-  color: #e6edf3;
-  cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
+#loginForm input::placeholder{
+  color:var(--muted);
 }
 
-#loginForm button:hover {
-  background: #2a3138;
-  border-color: #3a444d;
+#loginForm input:focus{
+  outline:none;
+  border-color:var(--border-strong);
+  box-shadow:0 0 0 2px rgba(47,129,247,.15);
 }
 
-#loginForm button:active {
-  transform: scale(0.98);
+/* BOTÃO (mais separado) */
+#loginForm button{
+  width:100%;
+  margin-top:22px;
+  padding:12px 14px;
+  font-size:14px;
+  font-weight:500;
+  background:var(--surface-soft);
+  border:1px solid var(--border);
+  border-radius:10px;
+  color:var(--text);
+  cursor:pointer;
+  transition:background .15s ease, border-color .15s ease;
+  letter-spacing:.02em;
 }
 
-/* Mensagem de erro */
-#errorMsg {
-  margin-top: 8px;
-  font-size: 12px;
-  text-align: center;
-  color: #f85149;
-  min-height: 14px;
+#loginForm button:hover{
+  background:#1a2129; /* levemente mais claro */
+  border-color:var(--border-strong);
 }
 
+#loginForm button:active{
+  background:#151b22; /* clique discreto */
+}
 
-
-
-
-
+/* ERROR */
+#errorMsg{
+  margin-top:8px;
+  font-size:12px;
+  text-align:center;
+  color:var(--danger);
+  min-height:16px;
+}
