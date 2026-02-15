@@ -56,9 +56,8 @@ body {
 
 /* Botão profissional discreto */
 #loginForm button {
-  align-self: center;
-  width: 60%;
-  padding: 10px 0;
+  width: 100%;
+  padding: 11px 12px;
   font-size: 14px;
   font-weight: 500;
   background: #21262d;
@@ -77,6 +76,7 @@ body {
 #loginForm button:active {
   transform: scale(0.98);
 }
+
 /* Mensagem de erro */
 #errorMsg {
   margin-top: 8px;
@@ -85,5 +85,6 @@ body {
   color: #f85149;
   min-height: 14px;
 }
+
 
 
