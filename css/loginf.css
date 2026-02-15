@@ -50,8 +50,10 @@ body {
 
 #loginForm input:focus {
   outline: none;
-  border-color: #2f81f7;
-  box-shadow: 0 0 0 2px rgba(47, 129, 247, 0.15);
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #111111;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
 }
 
 /* Botão profissional discreto */
@@ -85,6 +87,7 @@ body {
   color: #f85149;
   min-height: 14px;
 }
+
 
 
 
