@@ -56,9 +56,9 @@ body {
 
 /* Botão profissional discreto */
 #loginForm button {
-  width: 100%;
-  padding: 11px 12px;
-  font-size: 14px;
+  align-self: flex-end;
+  padding: 8px 16px;
+  font-size: 13px;
   font-weight: 500;
   background: #21262d;
   border: 1px solid #30363d;
@@ -85,3 +85,4 @@ body {
   color: #f85149;
   min-height: 14px;
 }
+
