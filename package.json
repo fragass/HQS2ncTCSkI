@@ -1,0 +1,24 @@
+{
+  "name": "hqs2nctcski",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fragass/HQS2ncTCSkI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/fragass/HQS2ncTCSkI/issues"
+  },
+  "homepage": "https://github.com/fragass/HQS2ncTCSkI#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.98.0"
+  }
+}
