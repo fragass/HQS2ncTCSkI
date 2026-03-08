@@ -1,47 +1,47 @@
+
 import crypto from "crypto";
+import { createClient } from "@supabase/supabase-js";
 
-function parseUsers(rawUsers = "") {
-  const usersMap = {};
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_ANON_KEY
+);
 
-  rawUsers
-    .split(",")
-    .map(pair => pair.trim())
-    .filter(Boolean)
-    .forEach(pair => {
-      const separatorIndex = pair.indexOf(":");
-      if (separatorIndex === -1) return;
-
-      const user = pair.slice(0, separatorIndex).trim();
-      const pass = pair.slice(separatorIndex + 1).trim();
-      if (user && pass) usersMap[user] = pass;
-    });
-
-  return usersMap;
-}
-
-export default function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ success: false, message: "Método não permitido" });
   }
 
-  const body = req.body && typeof req.body === "object" ? req.body : {};
-  const username = typeof body.username === "string" ? body.username.trim() : "";
-  const password = typeof body.password === "string" ? body.password : "";
+  const { username, password } = req.body || {};
 
   if (!username || !password) {
-    return res.status(400).json({ success: false, message: "Usuário e senha são obrigatórios" });
+    return res.status(400).json({ success: false, message: "Dados incompletos" });
   }
 
-  const usersMap = parseUsers(process.env.LOGIN_USERS || "");
-  const storedPassword = usersMap[username];
+  try {
+    const { data, error } = await supabase
+      .from("users")
+      .select("username, password, is_admin")
+      .eq("username", username)
+      .single();
 
-  if (storedPassword && storedPassword === password) {
+    if (error || !data) {
+      return res.status(401).json({ success: false });
+    }
+
+    if (data.password !== password) {
+      return res.status(401).json({ success: false });
+    }
+
+    const token = crypto.randomBytes(32).toString("hex");
+
     return res.status(200).json({
       success: true,
-      token: crypto.randomBytes(32).toString("hex"),
-      user: username
+      token,
+      user: data.username,
+      isAdmin: !!data.is_admin
     });
+  } catch (err) {
+    return res.status(500).json({ success: false, message: "Erro interno" });
   }
-
-  return res.status(401).json({ success: false, message: "Usuário ou senha inválidos" });
 }
